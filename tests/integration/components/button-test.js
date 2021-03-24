@@ -1,25 +1,24 @@
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
-import { module, test } from 'qunit';
-import Stories from './button-stories';
+import { config, module, test } from 'qunit';
+import { renderStory, takeSnapshot } from '../../helpers';
+import Component, { Emoji, Text } from './button-stories';
 
 module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders text', async function (assert) {
+    await renderStory(this, Text.template, Text.args);
 
-    await render(hbs`<Button />`);
+    assert.equal(this.element.textContent.trim(), Text.args.children);
 
-    assert.equal(this.element.textContent.trim(), '');
+    await takeSnapshot(Component, config.current.testName);
+  });
 
-    this.set('children', 'hello');
+  test('it renders emojis', async function (assert) {
+    await renderStory(this, Emoji.template, Emoji.args);
 
-    // // Template block usage:
-    await render(Stories.template);
+    assert.equal(this.element.textContent.trim(), Emoji.args.children);
 
-    assert.equal(this.element.textContent.trim(), 'hello');
+    await takeSnapshot(Component, config.current.testName);
   });
 });
