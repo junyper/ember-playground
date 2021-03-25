@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-const template = hbs`<Button {{action onClick}}>{{children}}</Button>`;
+const template = hbs`<Button @onClick={{this.onClick}}>{{children}}</Button>`;
 
 export default {
   title: 'Button',
@@ -16,6 +16,7 @@ export const Text = (context) => ({
 Text.template = template;
 Text.args = {
   children: 'hello',
+  onClick: () => console.log('hello from storybook'),
 };
 
 export const Emoji = (context) => ({

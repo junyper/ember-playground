@@ -14,5 +14,7 @@
   /**
     Setting this will always generate a JS backing class when generating a component
   */
-  "componentClass": "@glimmer/component"
+  "componentClass": "@glimmer/component",
+
+  "yarn": true
 }

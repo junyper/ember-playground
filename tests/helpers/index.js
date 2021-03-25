@@ -1,14 +1,29 @@
 import { render } from '@ember/test-helpers';
 import percySnapshot from '@percy/ember';
+import { getQueriesForElement } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+import { a11yAudit as a11yAuditBase } from 'ember-a11y-testing/test-support';
+import { config } from 'qunit';
 
-export const renderStory = async (context, template, args = {}) => {
-  Object.keys(args).forEach((key) => {
-    context.set(key, args[key]);
-  });
+export const renderStory = async (context, Story) => {
+  if (Story.args) {
+    Object.keys(Story.args).forEach((key) => {
+      context.set(key, Story.args[key]);
+    });
+  }
 
-  await render(template);
+  await render(Story.template);
+
+  return {
+    screen: getQueriesForElement(context.element),
+    userEvent,
+  };
 };
 
-export const takeSnapshot = async (Component, name, options) => {
-  await percySnapshot(`${Component.title}_${name}`, options);
+export const takeSnapshot = async (context, Component, options) => {
+  await percySnapshot(`${Component.title}_${config.current.testName}`, options);
+};
+
+export const a11yAudit = async (context, options) => {
+  await a11yAuditBase(context.element, options);
 };
