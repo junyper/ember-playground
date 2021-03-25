@@ -1,13 +1,13 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../tests/**/*-stories.[tj]s"
   ],
-  "addons": [
+  addons: [
+    "@storybook/addon-docs",
+    "@storybook/addon-controls",
     "@storybook/addon-a11y",
     "@storybook/addon-backgrounds",
-    "@storybook/addon-controls",
-    "@storybook/addon-docs",
     "@storybook/addon-toolbars",
     "@storybook/addon-viewport"
   ]
-}
+};

@@ -4,12 +4,7 @@ import { tracked } from '@glimmer/tracking';
 
 /**
  *
- * `Button` renders a button that is styled.
- *
- *
- * ```
- * <Button>hello</Button>
- * ```
+ * `Button` renders a button element that is styled.
  *
  * @class Button
  *

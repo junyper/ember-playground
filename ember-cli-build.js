@@ -20,6 +20,7 @@ module.exports = function (defaults) {
 
     'ember-cli-storybook': {
       enableAddonDocsIntegration: true,
+      componentFilePathPatterns: ['app/components/**/*.js'],
     },
   });
 
