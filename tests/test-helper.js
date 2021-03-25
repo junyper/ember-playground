@@ -2,7 +2,7 @@ import { setApplication } from '@ember/test-helpers';
 import {
   setupConsoleLogger,
   setupGlobalA11yHooks,
-  setupMiddlewareReporter
+  setupMiddlewareReporter,
 } from 'ember-a11y-testing/test-support';
 import Application from 'ember-playground/app';
 import config from 'ember-playground/config/environment';
