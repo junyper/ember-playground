@@ -17,6 +17,10 @@ module.exports = function (defaults) {
         }),
       ],
     },
+
+    'ember-cli-storybook': {
+      enableAddonDocsIntegration: true,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

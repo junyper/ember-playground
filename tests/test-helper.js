@@ -1,5 +1,9 @@
 import { setApplication } from '@ember/test-helpers';
-import { setupGlobalA11yHooks } from 'ember-a11y-testing/test-support';
+import {
+  setupConsoleLogger,
+  setupGlobalA11yHooks,
+  setupMiddlewareReporter
+} from 'ember-a11y-testing/test-support';
 import Application from 'ember-playground/app';
 import config from 'ember-playground/config/environment';
 import { start } from 'ember-qunit';
@@ -17,5 +21,9 @@ setup(QUnit.assert);
 setupSinon();
 
 setupGlobalA11yHooks(() => true);
+
+setupConsoleLogger();
+
+setupMiddlewareReporter();
 
 start();

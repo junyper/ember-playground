@@ -20,8 +20,11 @@ export const renderStory = async (context, Story) => {
   };
 };
 
-export const takeSnapshot = async (context, Component, options) => {
-  await percySnapshot(`${Component.title}_${config.current.testName}`, options);
+export const takeSnapshot = async (context, Story, options) => {
+  await percySnapshot(
+    `${Story.title || Story.component}_${config.current.testName}`,
+    options
+  );
 };
 
 export const a11yAudit = async (context, options) => {

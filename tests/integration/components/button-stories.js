@@ -3,6 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 const template = hbs`<Button @onClick={{this.onClick}}>{{children}}</Button>`;
 
 export default {
+  component: 'Button',
   title: 'Button',
   argTypes: {
     children: { control: 'text' },

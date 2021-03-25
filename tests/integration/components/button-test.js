@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 import { a11yAudit, renderStory, takeSnapshot } from '../../helpers';
-import Component, { Emoji, Text } from './button-stories';
+import Story, { Emoji, Text } from './button-stories';
 
 module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
@@ -24,7 +24,7 @@ module('Integration | Component | button', function (hooks) {
 
     await waitUntil(() => Text.args.onClick.calledWith(1));
 
-    await takeSnapshot(this, Component);
+    await takeSnapshot(this, Story);
 
     await a11yAudit(this);
 
@@ -39,7 +39,7 @@ module('Integration | Component | button', function (hooks) {
       Emoji.args.children
     );
 
-    await takeSnapshot(this, Component);
+    await takeSnapshot(this, Story);
 
     await a11yAudit(this);
 

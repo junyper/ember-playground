@@ -2,6 +2,19 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
+/**
+ *
+ * `Button` renders a button that is styled.
+ *
+ *
+ * ```
+ * <Button>hello</Button>
+ * ```
+ *
+ * @class Button
+ *
+ */
+
 export default class ButtonComponent extends Component {
   @tracked count = 0;
 
