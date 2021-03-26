@@ -3,7 +3,12 @@ module.exports = {
     "../tests/**/*-stories.[tj]s"
   ],
   addons: [
-    "@storybook/addon-docs",
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        sourceLoaderOptions: null,
+      },
+    },
     "@storybook/addon-controls",
     "@storybook/addon-a11y",
     "@storybook/addon-backgrounds",

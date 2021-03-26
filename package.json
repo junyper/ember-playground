@@ -24,7 +24,8 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "storybook": "start-storybook -p 6006 -s dist",
-    "build-storybook": "ember build && build-storybook -s dist"
+    "build-storybook": "ember build --environment test && build-storybook -s dist",
+    "clean": "rimraf dist storybook-static"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -81,11 +82,13 @@
     "husky": "^5.2.0",
     "lint-staged": "^10.5.4",
     "loader.js": "^4.7.0",
+    "msw": "^0.28.0",
     "npm-run-all": "^4.1.5",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "qunit": "^2.14.0",
     "qunit-dom": "^1.6.0",
+    "rimraf": "^3.0.2",
     "yarn": "^1.22.10"
   },
   "engines": {
@@ -109,5 +112,8 @@
     "{app,config,tests}/**/*.css": [
       "stylelint --allow-empty-input --fix"
     ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
