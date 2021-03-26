@@ -12,14 +12,14 @@ import ButtonComponentStyles from './styles';
  *
  */
 export default class ButtonComponent extends Component {
-  static styles = ButtonComponentStyles;
+  styles = ButtonComponentStyles;
 
   // errors out with: Attempted to resolve a modifier in a strict mode template, but it was not in scope: on
   static template = hbs`
     <button
       type="button"
       ...attributes
-      class={{ButtonComponent.styles.button}}
+      class={{this.styles.button}}
       data-count={{this.count}}
       {{on "click" this.handleClick}}
     >

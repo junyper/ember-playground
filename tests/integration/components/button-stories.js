@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-const template = hbs`<Button @onClick={{this.onClick}}>{{children}}</Button>`;
+const template = hbs`<Button @onClick={{this.onClick}}>{{this.children}}</Button>`;
 
 export default {
   component: 'Button',

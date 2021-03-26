@@ -10,7 +10,7 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember'],
+  plugins: ['ember', 'hbs'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -19,7 +19,9 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'hbs/check-hbs-template-literals': 2,
+  },
   overrides: [
     // node files
     {
