@@ -1,3 +1,4 @@
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
@@ -13,15 +14,15 @@ import ButtonComponentStyles from './styles';
  */
 export default class ButtonComponent extends Component {
   styles = ButtonComponentStyles;
+  on = on;
 
-  // errors out with: Attempted to resolve a modifier in a strict mode template, but it was not in scope: on
   static template = hbs`
     <button
       type="button"
       ...attributes
       class={{this.styles.button}}
       data-count={{this.count}}
-      {{on "click" this.handleClick}}
+      {{this.on "click" this.handleClick}}
     >
       {{yield}}
     </button>
