@@ -14,6 +14,7 @@ import ButtonComponentStyles from './styles';
  */
 export default class ButtonComponent extends Component {
   styles = ButtonComponentStyles;
+  // needed until this is fixed: https://github.com/ember-template-imports/ember-template-imports/issues/13
   on = on;
 
   static template = hbs`
