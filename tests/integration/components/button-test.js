@@ -13,12 +13,11 @@ module('Integration | Component | button', function (hooks) {
 
     const { screen, userEvent } = await renderStory(this, Text);
 
-    assert.equal(
-      screen.getByRole('button').textContent.trim(),
-      Text.args.children
-    );
+    const button = await screen.getByRole('button');
 
-    userEvent.click(screen.getByRole('button'));
+    assert.equal(button.textContent.trim(), Text.args.children);
+
+    userEvent.click(button);
 
     await waitUntil(() => Text.args.onClick.calledOnce);
 
@@ -34,10 +33,9 @@ module('Integration | Component | button', function (hooks) {
   test('it renders emojis', async function (assert) {
     const { screen } = await renderStory(this, Emoji);
 
-    assert.equal(
-      screen.getByRole('button').textContent.trim(),
-      Emoji.args.children
-    );
+    const button = await screen.getByRole('button');
+
+    assert.equal(button.textContent.trim(), Emoji.args.children);
 
     await takeSnapshot(this, Story);
 

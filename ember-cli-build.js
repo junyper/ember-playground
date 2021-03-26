@@ -2,6 +2,7 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const { browsers } = require('./config/targets');
+const isProduction = EmberApp.env() === 'production';
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -21,6 +22,11 @@ module.exports = function (defaults) {
     'ember-cli-storybook': {
       enableAddonDocsIntegration: true,
       componentFilePathPatterns: ['app/components/**/*.js'],
+    },
+
+    sourcemaps: {
+      enabled: isProduction,
+      extensions: ['js', 'css'],
     },
   });
 
