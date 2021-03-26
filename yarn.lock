@@ -8116,6 +8116,15 @@ ember-source@~3.25.1:
     semver "^6.1.1"
     silent-error "^1.1.1"
 
+ember-template-imports@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-1.1.1.tgz#41600ee044f2a9d5b7882c814cf25b260e31bac7"
+  integrity sha512-T6BMhEYIiYQK2/FI6Nn8WgidZagUAUjdLX4uKIaNY4+4ZmczD3gnVlR6sx4BU8DNAIi33S45ElPNjnUYgrjYpw==
+  dependencies:
+    broccoli-stew "^3.0.0"
+    ember-cli-version-checker "^5.1.2"
+    validate-peer-dependencies "^1.1.0"
+
 ember-template-lint@^2.18.1:
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-2.21.0.tgz#7e120abf309a8810eeed26c52377943faf15a95b"

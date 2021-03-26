@@ -1,6 +1,8 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { hbs } from 'ember-template-imports';
+import ButtonComponentStyles from './styles';
 
 /**
  *
@@ -9,16 +11,26 @@ import { tracked } from '@glimmer/tracking';
  * @class Button
  *
  */
-
 export default class ButtonComponent extends Component {
+  static styles = ButtonComponentStyles;
+
+  // errors out with: Attempted to resolve a modifier in a strict mode template, but it was not in scope: on
+  static template = hbs`
+    <button
+      type="button"
+      ...attributes
+      class={{ButtonComponent.styles.button}}
+      data-count={{this.count}}
+      {{on "click" this.handleClick}}
+    >
+      {{yield}}
+    </button>
+  `;
+
   @tracked count = 0;
 
-  @action
-  onClick() {
+  @action handleClick() {
     this.count = this.count + 1;
-    console.log(this.count);
-    if (typeof this.args.onClick === 'function') {
-      this.args.onClick(this.count);
-    }
+    typeof this.args.onClick === 'function' && this.args.onClick(this.count);
   }
 }
