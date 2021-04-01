@@ -3,6 +3,7 @@ module.exports = {
     "../tests/**/*-stories.[tj]s"
   ],
   addons: [
+    '@storybook/addon-postcss',
     {
       name: '@storybook/addon-docs',
       options: {

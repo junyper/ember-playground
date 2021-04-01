@@ -1,6 +1,6 @@
 import { render } from '@ember/test-helpers';
 import percySnapshot from '@percy/ember';
-import { getQueriesForElement } from '@testing-library/dom';
+import { getQueriesForElement, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { a11yAudit as a11yAuditBase } from 'ember-a11y-testing/test-support';
 import { config } from 'qunit';
@@ -15,8 +15,7 @@ export const renderStory = async (context, Story) => {
   await render(Story.template);
 
   return {
-    screen: getQueriesForElement(context.element),
-    userEvent,
+    element: getQueriesForElement(context.element),
   };
 };
 
@@ -30,3 +29,5 @@ export const takeSnapshot = async (context, Story, options) => {
 export const a11yAudit = async (context, options) => {
   await a11yAuditBase(context.element, options);
 };
+
+export { waitFor, userEvent };

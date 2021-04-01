@@ -1,0 +1,9 @@
+<button
+  type="button"
+  ...attributes
+  class={{this.styles.button}}
+  data-count={{this.count}}
+  {{this.on "click" this.handleClick}}
+>
+  {{yield}}
+</button>
