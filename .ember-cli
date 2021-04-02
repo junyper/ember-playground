@@ -10,7 +10,7 @@
     Use nested components folder structure by default
     /components/component-name/index.{hbs,js}
   */
-  "componentStructure": "nested",
+  "componentStructure": "flat",
   /**
     Setting this will always generate a JS backing class when generating a component
   */

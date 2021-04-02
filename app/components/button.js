@@ -2,7 +2,7 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-import ButtonComponentStyles from './styles';
+import ButtonComponentStyles from './button.css';
 
 /**
  *
