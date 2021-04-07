@@ -1,0 +1,16 @@
+  <div local-class="root">
+    <label
+      local-class="label"
+      for={{this.inputId}}
+    >
+      {{@label}}
+    </label>
+    <input
+      ...attributes
+      type="search"
+      local-class="input"
+      value={{@value}}
+      id={{this.inputId}}
+      {{ on "input" this.handleInput }}
+    />
+  </div>

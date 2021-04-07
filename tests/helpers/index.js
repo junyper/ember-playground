@@ -12,18 +12,15 @@ export const renderStory = async (context, Story) => {
     });
   }
 
-  await render(Story.template);
+  await render(Story().template);
 
   return {
-    element: getQueriesForElement(context.element),
+    screen: getQueriesForElement(context.element),
   };
 };
 
-export const takeSnapshot = async (context, Story, options) => {
-  await percySnapshot(
-    `${Story.title || Story.component}_${config.current.testName}`,
-    options
-  );
+export const takeSnapshot = async (context, name, options) => {
+  await percySnapshot(`${name}_${config.current.testName}`, options);
 };
 
 export const a11yAudit = async (context, options) => {

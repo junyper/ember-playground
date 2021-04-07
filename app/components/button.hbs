@@ -1,9 +1,9 @@
 <button
   type="button"
   ...attributes
-  class={{this.styles.button}}
+  local-class="button"
   data-count={{this.count}}
-  {{this.on "click" this.handleClick}}
+  {{on "click" this.handleClick}}
 >
   {{yield}}
 </button>

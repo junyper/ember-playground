@@ -17,9 +17,9 @@ module('Integration | Component | button', function (hooks) {
   test('it renders text', async function (assert) {
     Text.args.onClick = sinon.spy();
 
-    const { element } = await renderStory(this, Text);
+    const { screen } = await renderStory(this, Text);
 
-    const button = await element.getByRole('button');
+    const button = await screen.getByRole('button');
 
     assert.equal(button.textContent.trim(), Text.args.children);
 
@@ -29,7 +29,7 @@ module('Integration | Component | button', function (hooks) {
 
     await waitFor(() => Text.args.onClick.calledWith(1));
 
-    await takeSnapshot(this, Story);
+    await takeSnapshot(this, Story.title);
 
     await a11yAudit(this);
 
@@ -37,13 +37,13 @@ module('Integration | Component | button', function (hooks) {
   });
 
   test('it renders emojis', async function (assert) {
-    const { element } = await renderStory(this, Emoji);
+    const { screen } = await renderStory(this, Emoji);
 
-    const button = await element.getByRole('button');
+    const button = await screen.getByRole('button');
 
     assert.equal(button.textContent.trim(), Emoji.args.children);
 
-    await takeSnapshot(this, Story);
+    await takeSnapshot(this, Story.title);
 
     await a11yAudit(this);
 

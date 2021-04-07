@@ -6,19 +6,19 @@ import {
   takeSnapshot,
 } from 'ember-playground/tests/helpers';
 
-import Story, { Test } from './test-stories';
+import Story, { TemplateOnly } from './template-only-stories';
 
-module('Integration | Component | test', function (hooks) {
+module('Integration | Component | template-only', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const { element } = await renderStory(this, Test);
+    const { screen } = await renderStory(this, TemplateOnly);
 
-    const text = await element.findByText('testing 123');
+    const text = await screen.findByText('testing 123');
 
     assert.ok(text);
 
-    await takeSnapshot(this, Story);
+    await takeSnapshot(this, Story.title);
 
     await a11yAudit(this);
 

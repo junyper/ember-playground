@@ -1,0 +1,11 @@
+.root {
+  background-color: pink;
+}
+.input {
+  all: unset;
+}
+.label {
+  all: unset;
+  display: block;
+  font-weight: bold;
+}
